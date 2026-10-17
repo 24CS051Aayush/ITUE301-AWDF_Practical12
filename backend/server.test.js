@@ -9,10 +9,10 @@ const app = require('./server');
 
 describe('Practical 12: CI/CD Automated Test Pipeline', () => {
 
-  // Test 1: Root route status & metadata (Deliberately broken for CI failure demonstration)
+  // Test 1: Root route status & metadata (Fixed pipeline - returns 200)
   test('GET / returns 200 and confirms API metadata', async () => {
     const res = await request(app).get('/');
-    expect(res.statusCode).toBe(500); // Deliberate test failure: API returns 200, but expecting 500
+    expect(res.statusCode).toBe(200); // Fixed assertion: expects 200 and receives 200
     expect(res.body).toHaveProperty('student');
     expect(res.body.student).toContain('24CS051');
   });
